@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.urls import path,include
-from api.views import CompanyViewSet
+from api.views import CompanyViewSet,WorkerViewSet
 from rest_framework import routers
 
 
-routers=routers.DefaultRouter()
-routers.register(r'company', CompanyViewSet)
+
+routers=routers.DefaultRouter()     #Creates a default router that automatically maps your viewsets to URLs.
+routers.register(r'company', CompanyViewSet)    #Registers the CompanyViewSet with the router, mapping it to the URL prefix 'company'.
+routers.register(r'worker', WorkerViewSet)
 urlpatterns = [
      path('',include(routers.urls)),
 ]
